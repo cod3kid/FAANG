@@ -4,7 +4,7 @@ We can do this in linear time O(n) by using 2 loops. first find the product of a
 then use another loop to find product from last element ie, (array.length-1) to i
 and finally combine the two arrays
 
-Inorder to improve space complexity i've used below method. For better understand i recommend to refer commented code in the bottom
+Inorder to improve space complexity i've used below method. For better understanding i recommend to refer commented code in the bottom
 */
 
 a = [1, 2, 3, 4]
