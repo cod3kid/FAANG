@@ -1,19 +1,15 @@
 function champagneTower(poured, query_row, query_glass) {
-    let flow_through = [];
-    flow_through[0] = [poured];
-    for (let row = 1; row <= query_row; row++) {
-        flow_through[row] = new Array(row + 1).fill(0);
-        for (let glass = 0; glass <= row; glass++) {
-            if (glass <= row - 1 && flow_through[row - 1][glass] > 1)
-                flow_through[row][glass] += (flow_through[row - 1][glass] - 1) / 2;
-            if (glass - 1 >= 0 && flow_through[row - 1][glass - 1] > 1) {
-                flow_through[row][glass] += (flow_through[row - 1][glass - 1] - 1) / 2;
-            }
-
-        };
+    let cups = [poured];
+    for(let i=0; i<query_row; i++){
+        let nextRow = new Array(cups.length+1).fill(0);
+        for(let j=0; j<cups.length; j++){
+            let extraOverFlow = Math.max(0,cups[j]-1);
+            nextRow[j] += extraOverFlow/2;
+            nextRow[j+1] += extraOverFlow/2;
+        }
+        cups = nextRow;
     }
-
-    return flow_through[query_row][query_glass] > 1 ? 1 : flow_through[query_row][query_glass];
+    return Math.min(1,cups[query_glass]);
 }
 
 poured = 1, query_row = 10, query_glass = 1
