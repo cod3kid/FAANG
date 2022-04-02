@@ -1,6 +1,9 @@
 def splitArrayLargestSum(arr):
-   result = 0
-   return result
+   left, right = max(arr), sum(arr)
+   result = right
+
+   while left <= right:
+       mid = left + ((right -1)//2)
 
 
 arr = [7,2,5,10,18]
