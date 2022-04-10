@@ -1,0 +1,10 @@
+def isValidSubsequence(array, sequence):
+    
+
+
+
+
+
+
+
+
