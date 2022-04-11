@@ -4,6 +4,7 @@ def twoNumberSum(arr, targetSum):
     #     for j in range(len(arr)):
     #         if i!=j and arr[i]+arr[j] == targetSum :
     #             return [arr[i],arr[j]]
+        # return []
 
     # Time Complexity O(n)
     nums = {}
