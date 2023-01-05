@@ -2,13 +2,10 @@ function longestSubstringWithKDistinctChars(string, k) {
   if (string == null || string.length == 0 || k == 0) return 0;
 
   start = 0;
-  windowString = "";
   lookUp = {};
   maxLen = 0;
 
   for (i = 0; i < string.length; i++) {
-    windowString = string.slice(start, i + 1);
-
     if (lookUp[string[i]]) {
       lookUp[string[i]] += 1;
     } else {
