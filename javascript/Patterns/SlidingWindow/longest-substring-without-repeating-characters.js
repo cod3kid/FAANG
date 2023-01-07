@@ -25,3 +25,5 @@ function longestSubstringWithoutRepeatingCharacters(string) {
 
 string = "aabccbb";
 console.log(longestSubstringWithoutRepeatingCharacters(string));
+// Explanation
+// https://www.interviewbit.com/blog/wp-content/uploads/2021/10/Image-1-7.png
