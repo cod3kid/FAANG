@@ -45,4 +45,23 @@ class DoublyLinkedList {
     this.length--;
     return poppedNode;
   }
+
+  shift() {
+    let oldHead = this.head;
+    if (!this.head) return undefined;
+
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.head = oldHead.next;
+      this.head.prev = null;
+      // Just to detach  next when it's returned
+      oldHead.next = null;
+    }
+
+    this.length--;
+
+    return oldHead;
+  }
 }
