@@ -25,6 +25,7 @@ class DoublyLinkedList {
     }
 
     this.length++;
+    return this;
   }
 
   pop() {
@@ -64,4 +65,24 @@ class DoublyLinkedList {
 
     return oldHead;
   }
+
+  unshift(value) {
+    let newNode = new Node(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.head.prev = newNode;
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+
+    this.length++;
+    return this;
+  }
 }
+
+const dll = new DoublyLinkedList();
+dll.push(5);
+dll.push(11);
+console.log(dll.unshift(20));
