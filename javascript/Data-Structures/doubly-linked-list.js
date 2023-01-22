@@ -80,9 +80,24 @@ class DoublyLinkedList {
     this.length++;
     return this;
   }
+
+  get(index) {
+    if (index < 0 || index >= this.length) return undefined;
+
+    let current = this.head;
+    let count = 0;
+
+    while (count != index) {
+      current = current.next;
+      count++;
+    }
+
+    return current;
+  }
 }
 
 const dll = new DoublyLinkedList();
 dll.push(5);
 dll.push(11);
-console.log(dll.unshift(20));
+dll.unshift(20);
+console.log(dll.get(2));
