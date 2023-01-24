@@ -120,6 +120,30 @@ class DoublyLinkedList {
     }
     return currentNode;
   }
+
+  get(index) {
+    if (index < 0 || index >= this.length) return undefined;
+
+    let current = this.head;
+    let count = 0;
+
+    while (count != index) {
+      current = current.next;
+      count++;
+    }
+
+    return current;
+  }
+
+  set(index, value) {
+    const foundNode = this.get(index);
+    if (foundNode) {
+      foundNode.value = value;
+      return true;
+    }
+
+    return false;
+  }
 }
 
 const dll = new DoublyLinkedList();
