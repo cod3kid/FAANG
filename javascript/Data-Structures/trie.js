@@ -14,8 +14,22 @@ class Trie {
     }
     map["isEnd"] = true;
   }
+
+  search(word) {
+    let map = this.root;
+
+    for (let char of word) {
+      if (!map[char]) {
+        return false;
+      }
+      map = map[char];
+    }
+
+    return map["isEnd"];
+  }
 }
 
 const trie = new Trie();
 trie.insert("apple");
-console.log(JSON.stringify(trie.root));
+console.log(trie.search("app"));
+// console.log(JSON.stringify(trie.root));
