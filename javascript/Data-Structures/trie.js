@@ -27,9 +27,22 @@ class Trie {
 
     return map["isEnd"];
   }
+
+  startsWith(prefix) {
+    let map = this.root;
+
+    for (let char of prefix) {
+      if (!map[char]) {
+        return false;
+      }
+      map = map[char];
+    }
+
+    return true;
+  }
 }
 
 const trie = new Trie();
 trie.insert("apple");
-console.log(trie.search("app"));
+console.log(trie.startsWith("app"));
 // console.log(JSON.stringify(trie.root));
