@@ -27,8 +27,17 @@ class Graph {
       console.log(vertex, " -> ", [...this.adjacencyList[vertex]]);
     }
   }
+
+  hasEdge(vertex1, vertex2) {
+    return (
+      this.adjacencyList[vertex1].has(vertex2) &&
+      this.adjacencyList[vertex2].has(vertex1)
+    );
+  }
 }
 
 const graph = new Graph();
 graph.addEdge("A", "B");
+graph.addEdge("A", "C");
 graph.display();
+console.log(graph.hasEdge("A", "C"));
