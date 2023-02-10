@@ -34,10 +34,18 @@ class Graph {
       this.adjacencyList[vertex2].has(vertex1)
     );
   }
+
+  removeEdge(vertex1, vertex2) {
+    this.adjacencyList[vertex1].delete(vertex2);
+    this.adjacencyList[vertex2].delete(vertex1);
+  }
 }
 
 const graph = new Graph();
 graph.addEdge("A", "B");
 graph.addEdge("A", "C");
 graph.display();
-console.log(graph.hasEdge("A", "C"));
+// console.log(graph.hasEdge("A", "C"));
+graph.removeEdge("A", "C");
+console.log("After Deletion");
+graph.display();
