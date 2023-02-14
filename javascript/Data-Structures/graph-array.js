@@ -75,6 +75,28 @@ class Graph {
 
     return result;
   }
+
+  breadFirstSearch(start) {
+    let queue = [start];
+    let result = [];
+    let visited = {};
+    let currentVertex;
+
+    visited[start] = true;
+
+    while (queue.length) {
+      currentVertex = queue.shift();
+      result.push(currentVertex);
+
+      this.adjacencyList[currentVertex].forEach((neighbour) => {
+        if (!visited[neighbour]) {
+          queue.push(neighbour);
+          visited[neighbour] = true;
+        }
+      });
+    }
+    return result;
+  }
 }
 
 let g = new Graph();
@@ -95,3 +117,4 @@ g.addEdge("D", "F");
 g.addEdge("E", "F");
 console.log(g.depthFirstRecursive("A"));
 console.log(g.depthFirstIterative("A"));
+console.log(g.breadFirstSearch("A"));
