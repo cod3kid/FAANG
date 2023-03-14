@@ -1,10 +1,13 @@
 def twoNumberSum(arr, targetSum):
-    # Time Complexity O(n^2)
+    # Time Complexity O(n^2) // Brute Force Approach
     # for i in range(len(arr)):
     #     for j in range(len(arr)):
     #         if i!=j and arr[i]+arr[j] == targetSum :
     #             return [arr[i],arr[j]]
         # return []
+
+
+   # if nums.get(potential_match)==True: way to check a key in a dictionary
 
     # Time Complexity O(n)
     nums = {}
