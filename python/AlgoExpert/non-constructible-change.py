@@ -12,6 +12,18 @@ def nonConstructibleChange(arr):
 
 
 arr = [5,7,1,1,2,3,22]
+
+def nonConstructibleChangeBruteForce(arr):
+    sortedArr = sorted(arr)
+    i = 0
+    while True:
+        for j in sortedArr:
+            print(j)
+        i+=1
+
+    return False
+
 print(nonConstructibleChange(arr))
+print(nonConstructibleChangeBruteForce(arr))
 
 
