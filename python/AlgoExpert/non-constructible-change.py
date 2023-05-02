@@ -15,15 +15,24 @@ arr = [5,7,1,1,2,3,22]
 
 def nonConstructibleChangeBruteForce(arr):
     sortedArr = sorted(arr)
-    i = 0
+    i = 1
     while True:
+        currentChangeCreated = 0
+        currentSum = 0
         for j in sortedArr:
-            print(j)
+            
+            currentSum += j
+            if i == j:
+                print(i, j)
+                break
+
+            if j+currentSum > i:
+                # Try another loop here
+                return currentSum
+            
         i+=1
 
-    return False
-
-print(nonConstructibleChange(arr))
+# print(nonConstructibleChange(arr))
 print(nonConstructibleChangeBruteForce(arr))
 
 
