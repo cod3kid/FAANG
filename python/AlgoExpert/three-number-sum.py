@@ -31,7 +31,7 @@ def threeNumberSum(arr, targetSum):
         if sortedArr[i] + sortedArr[j] + sortedArr[k] == targetSum:
           result.append(sorted([sortedArr[i],sortedArr[j],sortedArr[k]]))
         
-  return sorted(result,key=lambda x:x[1])
+  return sorted(result,key=lambda x: (x[0], x[1], x[2]))
 
 
 
