@@ -1,4 +1,34 @@
-# def threeNumberSum(arr, targetSum):
+def smallestDifference(arr1, arr2):
+    sortedArr1 = sorted(arr1)
+    sortedArr2 = sorted(arr2)
+    
+    firstPtr=0
+    secondPtr=0
+    
+    smallest = float("inf")
+    current = float("inf")
+    
+    smallestPair = []
+    while firstPtr < len(sortedArr1) and secondPtr < len(sortedArr2):
+        
+        firstNum = sortedArr1[firstPtr]
+        secondNum = sortedArr2[secondPtr]
+
+        if firstNum < secondNum:
+            current = secondNum - firstNum
+            firstPtr+=1
+
+        elif secondNum < firstNum:
+            current = firstNum - secondNum
+            secondPtr+=1
+        else:
+            return [firstNum, secondNum]
+            
+        if current < smallest:
+            smallest = current
+            smallestPair = [firstNum,secondNum]
+
+    return smallestPair
 
 def smallestDifferenceBruteForce(arr1, arr2):
     sortedArr1 = sorted(arr1)
@@ -19,7 +49,7 @@ def smallestDifferenceBruteForce(arr1, arr2):
 
 arr1 = [10, 1000, 9124, 2142, 59, 24, 596, 591, 124, -123]
 arr2 =  [-1441, -124, -25, 1014, 1500, 660, 410, 245, 530]
-# print(threeNumberSumBruteForce(arr, targetSum))
+print(smallestDifference(arr1, arr2))
 print(smallestDifferenceBruteForce(arr1, arr2))
 
 
