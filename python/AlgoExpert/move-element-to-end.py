@@ -1,21 +1,19 @@
 def moveElementToEnd(array, toMove):
     toMoveArray = []
-    i=0
-    nonToMoveArray =  array[:]
-    print(nonToMoveArray)
+    nonToMoveArray = []
 
-    while i < len(array)-1:
+    for i in range(len(array)):
         if array[i] == toMove:
             toMoveArray.append(toMove)
-            del nonToMoveArray[i]
+        else:
+            nonToMoveArray.append(array[i])
 
-        i+=1
     return nonToMoveArray + toMoveArray
 
 
 array = [2, 1, 2, 2, 2, 3, 4, 2]
 toMove = 2
 print(moveElementToEnd(array, toMove))
-# print(moveElementToEnd(arr1, arr2))
+# Keeping only my solution I found this is easier to follow
 
 
