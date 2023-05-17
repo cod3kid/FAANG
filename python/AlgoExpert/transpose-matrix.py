@@ -1,16 +1,13 @@
 def transposeMatrix(matrix):
-    newMatrix = []
-    for i in range(len(matrix)):
-        currRow = []
-        for j in range(len(matrix[i])):
-          print(i,j) 
-          if i <= len(matrix) and j <= len(matrix[i]):
-            currRow.append(matrix[j][i])
-            # print('index',j,i)
-        newMatrix.append(currRow)
-        currRow=[]
-
-    return newMatrix
+    transposedMatrix = []
+    for col in range(len(matrix[0])):
+        newRow = []
+        for row in range(len(matrix)):
+            newRow.append(matrix[row][col])
+        transposedMatrix.append(newRow)
+    return transposedMatrix
 
 matrix = [[1,2],[3,4],[5,6]]
 print(transposeMatrix(matrix))
+
+
