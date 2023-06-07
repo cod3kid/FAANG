@@ -1,23 +1,42 @@
-const isMountainArray = (arr) => {
-  isPeakFound = false;
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
+  }
+}
 
-  if (arr.length < 3) {
-    return false;
+class SinglyLinkedList {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
   }
 
-  for (i = 0; i < arr.length; i++) {
-    if (arr[i] === arr[i + 1]) return false;
+  push(val) {
+    var newNode = new Node(val);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.tail.next = newNode;
+      this.tail = newNode;
+    }
 
-    if (isPeakFound && arr[i] > arr[i + 1]) {
-      return false;
-    }
-    if (arr[i] < arr[i - 1]) {
-      isPeakFound = true;
-    }
+    this.length++;
   }
 
-  return true;
-};
+  display() {
+    let current = this.head;
+    while (current !== null) {
+      console.log(current.val);
+      current = current.next;
+    }
+  }
+}
 
-num = [0, 1, 2, 3, 4, 5, 2, 1];
-console.log(isMountainArray(num));
+list = new SinglyLinkedList();
+list.push("start");
+list.push("middle");
+list.push("end");
+list.display();
+// console.log(list);
