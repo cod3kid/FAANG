@@ -63,15 +63,28 @@ class SinglyLinkedList {
     }
     return this.head;
   }
+
+  unshift(val) {
+    var newNode = new Node(val);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+
+    return this.head;
+  }
 }
 
 var list = new SinglyLinkedList();
-list.push("Start");
-list.push("Middle");
-list.push("End");
+// list.push("Start");
+// list.push("Middle");
+// list.push("End");
 // list.pop();
-list.shift();
-// list.unshift();
-// list.unshift();
+// list.shift();
+list.unshift("Pre Start");
 
 console.log(list);
