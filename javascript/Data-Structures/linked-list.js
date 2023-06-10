@@ -93,16 +93,28 @@ class SinglyLinkedList {
 
     return current;
   }
+
+  set(index, newVal) {
+    var foundNode = this.get(index);
+
+    if (foundNode) {
+      foundNode.val = newVal;
+      return true;
+    }
+
+    return false;
+  }
 }
 
 var list = new SinglyLinkedList();
 list.push("Start");
 list.push("Middle");
-list.push("Second Last");
+// list.push("Second Last");
 list.push("End");
 // list.pop();
 // list.shift();
 // list.unshift("Pre Start");
-console.log(list.get(4));
+// console.log(list.get(4));
+console.log(list.set(7, "Mid"));
 
 console.log(list);
