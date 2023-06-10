@@ -77,14 +77,32 @@ class SinglyLinkedList {
 
     return this.head;
   }
+
+  get(index) {
+    var current = this.head;
+    var count = 0;
+
+    if (index < 0 || index >= this.length) {
+      return null;
+    }
+
+    while (index != count) {
+      current = current.next;
+      count++;
+    }
+
+    return current;
+  }
 }
 
 var list = new SinglyLinkedList();
-// list.push("Start");
-// list.push("Middle");
-// list.push("End");
+list.push("Start");
+list.push("Middle");
+list.push("Second Last");
+list.push("End");
 // list.pop();
 // list.shift();
-list.unshift("Pre Start");
+// list.unshift("Pre Start");
+console.log(list.get(4));
 
 console.log(list);
