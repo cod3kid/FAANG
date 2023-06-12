@@ -130,6 +130,33 @@ class SinglyLinkedList {
     this.length++;
     return true;
   }
+
+  remove(index) {
+    if (this.length <= 0 || index > this.length - 1) {
+      return false;
+    }
+
+    if (index === 0) {
+      return this.shift();
+    }
+
+    if (index === this.length - 1) {
+      return this.pop();
+    }
+
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+      return true;
+    }
+
+    var prevNode = this.get(index - 1);
+    var nextNode = this.get(index + 1);
+
+    prevNode.next = nextNode;
+    this.length--;
+    return true;
+  }
 }
 
 var list = new SinglyLinkedList();
@@ -142,5 +169,6 @@ list.push("End");
 // list.unshift("Pre Start");
 // console.log(list.get(4));
 // console.log(list.set(7, "Mid"));
-list.insert(1, "Second Last");
+// list.insert(1, "Second Last");
+console.log(list.remove(0));
 console.log(list);
