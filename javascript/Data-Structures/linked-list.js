@@ -157,6 +157,24 @@ class SinglyLinkedList {
     this.length--;
     return true;
   }
+
+  reverse() {
+    var node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+
+    var prev = null;
+    var next = null;
+
+    for (let i = 0; i < this.length; i++) {
+      next = node.next;
+      node.next = prev;
+      prev = node;
+      node = next;
+    }
+
+    return this;
+  }
 }
 
 var list = new SinglyLinkedList();
@@ -170,5 +188,6 @@ list.push("End");
 // console.log(list.get(4));
 // console.log(list.set(7, "Mid"));
 // list.insert(1, "Second Last");
-console.log(list.remove(0));
+// console.log(list.remove(0));
+list.reverse();
 console.log(list);
