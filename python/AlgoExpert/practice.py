@@ -1,16 +1,17 @@
-def getSum(arr, sequence):
-    
-    sequenceIndex = 0
-    
-    for i in range(len(arr)):
-        if arr[i] == sequence[sequenceIndex]:
-            sequenceIndex+=1
-        
-        if sequenceIndex == len(sequence):
-            return True
+def bubbleSort(nums):
 
-    return False
+    for i in range(len(nums)):
+        lowest = i
+        for j in range(i,len(nums)):
+            if nums[lowest] > nums[j]:
+                lowest = j
 
-arr = [5, 1,22,25,6,-1,8,10]
-sequence = [1,6,-1,10]
-print(getSum(arr,sequence))
+        swap = nums[i]
+        nums[i] =  nums[lowest]
+        nums[lowest] = swap
+
+    return nums
+
+
+nums = [9,5,3,34,21,7,10,1,100]
+print(bubbleSort(nums))
