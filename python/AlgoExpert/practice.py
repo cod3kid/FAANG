@@ -1,23 +1,6 @@
-def quickSortHelper(arr,start,end):
-    pivot = arr[start]
-    swapIdx = start
+def quickselect(array, k):
+    # Write your code here.
+    return sorted(array)[k-1]
 
-    for i in range(start+1,len(arr)):
-        if pivot > arr[i]:
-            swapIdx+=1
-            arr[i],arr[swapIdx]=arr[swapIdx],arr[i]
-
-    
-    arr[start],arr[swapIdx] = arr[swapIdx],arr[start]
-    return swapIdx
-
-def quickSort(arr,left,right):
-    if left<right:
-        pivotIdx = quickSortHelper(arr,left,right)
-        quickSort(arr,left,pivotIdx-1)
-        quickSort(arr,pivotIdx+1,right)
-
-    return arr
-
-nums = [9,5,3,34,21,7,10,1,100]
-print(quickSort(nums,0,len(nums)-1))
+nums = [8, 5, 2, 9, 7, 6, 3]
+print(quickselect(nums,3))
