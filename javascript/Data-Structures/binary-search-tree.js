@@ -83,6 +83,20 @@ class BinarySearchTree {
 
     return data;
   }
+
+  dfs_postorder() {
+    let data = [];
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+
+      data.push(node.value);
+    }
+
+    traverse(this.root);
+
+    return data;
+  }
 }
 
 const bst = new BinarySearchTree();
@@ -101,3 +115,5 @@ bst.insert(20);
 // );
 console.log(bst.bfs());
 console.log(bst.dfs_preorder());
+console.log(bst.dfs_postorder());
+// console.log(bst.dfs_inorder());
