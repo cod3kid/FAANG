@@ -1,29 +1,17 @@
-function encodeString(str) {
+function encodeString(string) {
+  result = string[0];
+  currCount = 1;
 
-    if (str.length == 1) {
-        return str + '1'
+  for (i = 1; i < string.length; i++) {
+    if (string[i - 1] === string[i]) {
+      currCount++;
+    } else {
+      result += currCount + string[i];
+      currCount = 1;
     }
+  }
 
-    currentChar=str[0]
-    result=''
-    count = 0
-
-    for (let i = 1; i <= str.length; i++) {
-        if (str[i - 1] !== str[i]) {
-            count++
-            result+=currentChar+count
-            count=0
-            currentChar=str[i]
-        }
-        else{
-          count++
-        }
-    }
-
-
-
-    return result
+  return result;
 }
 
-
-console.log(encodeString('xzvgggseeetyu'))
+console.log(encodeString("kkkxzvggsejyyeetyu"));
