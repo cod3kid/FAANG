@@ -31,7 +31,7 @@ const isValidPart = (ip) => {
   const ipInt = parseInt(ip);
   if (ipInt > 255) return false;
 
-  return ip.length === ipInt.toString().length;
+  return ip.length === ipInt.toString().length; // check for leading 0's
 };
 
 let str = "1921680";
