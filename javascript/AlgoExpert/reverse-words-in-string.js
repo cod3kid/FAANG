@@ -11,9 +11,7 @@ const reverseWordsInString = (string) => {
     }
   }
 
-  if (currentWord != "") {
-    result.push(currentWord);
-  }
+  result.push(currentWord);
 
   for (let j = result.length - 1; j >= 0; j--) {
     finalString += " ";
