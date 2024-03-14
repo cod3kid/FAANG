@@ -12,3 +12,11 @@ titles.forEach((title) => {
 });
 
 console.log(groupedTitles);
+
+const query = "spede";
+
+Object.keys(groupedTitles).forEach((key) => {
+  if (query.split("").sort().join("") === key) {
+    console.log(groupedTitles[key]);
+  }
+});
