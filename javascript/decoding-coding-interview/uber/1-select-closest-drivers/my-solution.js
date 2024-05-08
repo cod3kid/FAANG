@@ -18,4 +18,32 @@ for (let i = 0; i < locations.length; i++) {
   );
 }
 
-console.log(distances);
+const bubbleUp = () => {
+  let idx = maxHeap.length - 1;
+  const element = maxHeap.at(-1);
+
+  while (idx > 0) {
+    const parentIdx = Math.floor((idx - 1) / 2);
+    const parentElement = maxHeap[parentIdx];
+
+    if (element <= parentElement) break;
+
+    maxHeap[parentIdx] = element;
+    maxHeap[idx] = parentElement;
+    idx = parentIdx;
+  }
+};
+
+const insert = (value) => {
+  maxHeap.push(value);
+  bubbleUp();
+};
+
+let maxHeap = [];
+
+distances.forEach((distance) => {
+  insert(distance);
+});
+
+console.log("Distances", distances);
+console.log("Max Heap", maxHeap);
