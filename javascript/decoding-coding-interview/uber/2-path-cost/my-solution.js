@@ -23,7 +23,10 @@ for (let i = 0; i < n; i++) {
 
 console.log(totalWater);
 
-/*   Time Complexity is O(n^2)
+/*   
+    Logic => Find left and right maxes for each elevation and then for each elevations, water =  Max(leftMax,rightMax)-valueX
+
+    Time Complexity is O(n^2)
      We can improve this by using a bit of Dynamic Programming to calculate the leftMax and rightMax
      Instead of leftMax[i] = Math.max(...elevations.slice(0, i + 1));
      Use leftMax[i] = Math.max(left[i-1],elevations[i])
