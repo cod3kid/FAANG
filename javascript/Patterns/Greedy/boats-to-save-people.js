@@ -15,3 +15,7 @@ const rescueBoats = (people, limit) => {
   }
   return noOfBoats;
 };
+
+const people = [3, 1, 4, 2, 4];
+const limit = 4;
+console.log(rescueBoats(people, limit));
