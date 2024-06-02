@@ -1,8 +1,45 @@
-/**
- * @param {character[][]} board
- * @param {string[]} words
- * @return {string[]}
- */
+// My own Naive DFS without Trie
+
+// const findWords = (board, words) => {
+//   let result = [];
+//   for (let i = 0; i < board.length; i++) {
+//     for (let j = 0; j < board[i].length; j++) {
+//       for (let k = 0; k < words.length; k++) {
+//         dfs(board, i, j, words[k], result, k, words);
+//       }
+//     }
+//   }
+
+//   return Array.from(new Set(result));
+// };
+
+// const dfs = (board, i, j, wordSub, result, k, words) => {
+//   if (wordSub.length === 0) {
+//     return result.push(words[k]);
+//   }
+
+//   if (i < 0 || i > board.length - 1 || j < 0 || j > board[i].length - 1) return;
+
+//   if (board[i][j] === wordSub[0]) {
+//     dfs(board, i + 1, j, wordSub.slice(1), result, k, words);
+//     dfs(board, i - 1, j, wordSub.slice(1), result, k, words);
+//     dfs(board, i, j + 1, wordSub.slice(1), result, k, words);
+//     dfs(board, i, j - 1, wordSub.slice(1), result, k, words);
+//   } else {
+//     return false;
+//   }
+// };
+
+// const words = ["TOURISM", "DESTINED", "POPULAR"];
+
+// const board = [
+//   ["P", "S", "L", "A", "M"],
+//   ["O", "P", "U", "R", "O"],
+//   ["O", "L", "I", "E", "O"],
+//   ["R", "T", "A", "S", "N"],
+//   ["S", "I", "T", "A", "C"],
+// ];
+// console.log(findWords(board, words));
 
 class Trie {
   constructor() {
