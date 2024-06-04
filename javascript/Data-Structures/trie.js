@@ -50,7 +50,9 @@ class Trie {
         result.push(currentWord);
       }
 
-      for (let char in node) {
+      // For sorting lexicographically
+      let keys = Object.keys(node).sort();
+      for (let char of keys) {
         if (char !== "isEnd") {
           dfs(node[char], currentWord + char);
         }
@@ -69,5 +71,7 @@ console.log(trie.startsWith("app"));
 trie.insert("monkeypen");
 trie.insert("sufail");
 trie.insert("app");
+trie.insert("cricket");
+trie.insert("basketball");
 console.log(trie.getWords());
 // console.log(JSON.stringify(trie.root));
