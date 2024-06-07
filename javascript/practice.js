@@ -1,45 +1,71 @@
-const noOfIslands = (grid) => {
-  let countArr = [];
+class Trie {
+  constructor() {
+    this.root = {};
+  }
 
-  for (let i = 0; i <= grid.length - 1; i++) {
-    for (let j = 0; j <= grid[0].length - 1; j++) {
-      let count = 0;
-      if (grid[i][j] === 1) {
-        count = bfs(grid, i, j, count);
-        countArr.push(count);
+  insert(word) {
+    let map = this.root;
+    for (let char of word) {
+      if (!map[char]) {
+        map[char] = {};
       }
+      map = map[char];
+      if (!map["isEnd"]) map["isEnd"] = false;
     }
+    map["isEnd"] = true;
   }
 
-  return countArr;
-};
+  search(word) {
+    let map = this.root;
 
-const bfs = (grid, i, j, count) => {
-  if (
-    i < 0 ||
-    i > grid.length - 1 ||
-    j < 0 ||
-    j > grid[0].length - 1 ||
-    grid[i][j] === 0
-  ) {
-    return count;
+    for (let char of word) {
+      if (!map[char]) {
+        return false;
+      }
+      map = map[char];
+    }
+
+    return map["isEnd"];
   }
 
-  count++;
-  grid[i][j] = 0;
-  count = bfs(grid, i + 1, j, count);
-  count = bfs(grid, i - 1, j, count);
-  count = bfs(grid, i, j + 1, count);
-  count = bfs(grid, i, j - 1, count);
+  startsWith(prefix) {
+    let map = this.root;
 
-  return count;
-};
+    for (let char of prefix) {
+      if (!map[char]) {
+        return false;
+      }
+      map = map[char];
+    }
 
-grid = [
-  [1, 1, 0, 0, 0],
-  [1, 1, 0, 0, 0],
-  [0, 0, 1, 0, 0],
-  [0, 0, 0, 1, 1],
-];
+    return true;
+  }
 
-console.log(noOfIslands(grid));
+  getWords() {
+    let root = this.root;
+    let result = [];
+
+    const dfs = (node, currentWord) => {
+      if (node["isEnd"]) {
+        result.push(currentWord);
+      }
+
+      for (let char in node) {
+        if (char !== "isEnd") {
+          dfs(node[char], currentWord + char);
+        }
+      }
+    };
+
+    dfs(root, "");
+
+    return result;
+  }
+}
+
+const trie = new Trie();
+trie.insert("apple");
+trie.insert("monkeypen");
+trie.insert("sufail");
+trie.insert("app");
+console.log(trie.getWords());

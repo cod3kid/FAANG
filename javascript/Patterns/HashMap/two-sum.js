@@ -10,3 +10,6 @@ twoSum = function (arr, target) {
     map[arr[i]] = i;
   }
 };
+
+// Two Sum with Hash Map
+// We can also solve this by sorting and using Two Pointers
