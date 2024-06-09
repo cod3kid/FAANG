@@ -134,3 +134,7 @@ console.log(bst.dfs_inorder());
 // Note:
 // Pre-order traversal will always visit the current node before visiting its children.
 //For post-order traversal, you visit a node's children before visiting that node.
+
+// in-Order
+//  If it were a binary search tree, this will start with the smallest value at the left-most node and end at the largest value at the right-most node.
+// Use in-order traversal if you need to utilize the nodes as if they are in a sorted linear order.
