@@ -19,7 +19,7 @@ var maxPathSum = function (root) {
     let leftMax = Math.max(dfs(node.left), 0);
     let rightMax = Math.max(dfs(node.right), 0);
 
-    // Global Max Path Sum
+    // Global Max Path Sum (We're considering this node as root)
     result = Math.max(result, node.val + leftMax + rightMax);
 
     // Max Path Sum at Current Node
