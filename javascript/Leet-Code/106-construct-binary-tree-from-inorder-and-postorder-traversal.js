@@ -18,14 +18,8 @@ var buildTree = function (inorder, postorder) {
   let root = new TreeNode(rootVal);
   let rootIdx = inorder.indexOf(rootVal);
 
-  let inorderLeft = inorder.slice(0, rootIdx);
-  let inorderRight = inorder.slice(rootIdx + 1);
-
-  let postorderLeft = postorder.slice(0, inorderLeft.length);
-  let postorderRight = postorder.slice(inorderLeft.length);
-
-  root.left = buildTree(inorderLeft, postorderLeft);
-  root.right = buildTree(inorderRight, postorderRight);
+  root.right = buildTree(inorder.slice(rootIdx + 1), postorder);
+  root.left = buildTree(inorder.slice(0, rootIdx), postorder);
 
   return root;
 };
