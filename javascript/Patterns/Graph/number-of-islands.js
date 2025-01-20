@@ -9,7 +9,7 @@ var numIslands = function (grid) {
     for (let j = 0; j < grid[0].length; j++) {
       if (grid[i][j] == 1) {
         count++;
-        bfs(grid, i, j);
+        dfs(grid, i, j);
       }
     }
   }
@@ -17,7 +17,7 @@ var numIslands = function (grid) {
   return count;
 };
 
-const bfs = (grid, i, j) => {
+const dfs = (grid, i, j) => {
   if (
     i < 0 ||
     j < 0 ||
@@ -29,10 +29,10 @@ const bfs = (grid, i, j) => {
 
   grid[i][j] = "0";
 
-  bfs(grid, i + 1, j);
-  bfs(grid, i - 1, j);
-  bfs(grid, i, j + 1);
-  bfs(grid, i, j - 1);
+  dfs(grid, i + 1, j);
+  dfs(grid, i - 1, j);
+  dfs(grid, i, j + 1);
+  dfs(grid, i, j - 1);
 
   return;
 };
