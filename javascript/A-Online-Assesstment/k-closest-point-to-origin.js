@@ -1,5 +1,7 @@
 /**
 Use Heap instead of Sorting the Distances Array
+
+It is similar to Closest Delivery St
 */
 
 var kClosest = function (points, k) {
