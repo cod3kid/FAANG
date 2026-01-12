@@ -7,11 +7,11 @@ class Point {
 }
 
 class Rectangle {
-  constructor(x, y, width, height) {
+  constructor(x, y, halfWidth, halfHeight) {
     this.x = x; // center x
     this.y = y; // center y
-    this.width = width; // half width
-    this.height = height; // half height
+    this.width = halfWidth; // half width from center
+    this.height = halfHeight; // half height from center
   }
 
   contains(point) {
