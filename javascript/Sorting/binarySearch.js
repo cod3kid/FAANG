@@ -5,7 +5,7 @@
  * It works by repeatedly dividing the search interval in half.
  * 
  * Time Complexity: O(log n)
- * Space Complexity: O(1)
+ * Space Complexity: O(1) for iterative, O(log n) for recursive (call stack)
  * 
  * Prerequisites: The array must be sorted in ascending order
  */
@@ -73,8 +73,10 @@ function binarySearchRecursive(arr, target, left = 0, right = arr.length - 1) {
     }
 }
 
-// Example usage and test cases
-console.log("=== Binary Search Examples ===\n");
+// Run examples only when file is executed directly
+if (require.main === module) {
+    // Example usage and test cases
+    console.log("=== Binary Search Examples ===\n");
 
 // Test case 1: Target exists in array
 const arr1 = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
@@ -137,6 +139,7 @@ console.log("Array:", arr7);
 console.log("Searching for:", target7);
 console.log("Iterative result:", binarySearch(arr7, target7)); // Expected: 2
 console.log("Recursive result:", binarySearchRecursive(arr7, target7)); // Expected: 2
+}
 
 // Export functions for potential use in other files
 module.exports = { binarySearch, binarySearchRecursive };
